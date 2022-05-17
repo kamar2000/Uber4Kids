@@ -416,9 +416,37 @@ class mapshow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "${model.name}",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "${model.name}",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                if (model.rate != 0)
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                if (model.rate != 0)
+                  Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                    size: 20.0,
+                  ),
+                if (model.rate != 0)
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                if (model.rate != 0)
+                  Text(
+                    "${model.rate.toString().substring(0, 3)}",
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.grey,
+                        letterSpacing: 2.0,
+                        fontWeight: FontWeight.w400),
+                  ),
+              ],
             ),
             SizedBox(
               height: 6,

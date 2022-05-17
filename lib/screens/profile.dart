@@ -65,13 +65,41 @@ class profile extends StatelessWidget {
                       SizedBox(
                         height: 60,
                       ),
-                      Text(
-                        "${model.name}",
-                        style: TextStyle(
-                            fontSize: 25.0,
-                            color: Colors.blueGrey,
-                            letterSpacing: 2.0,
-                            fontWeight: FontWeight.w400),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "${model.name}",
+                            style: TextStyle(
+                                fontSize: 25.0,
+                                color: Colors.blueGrey,
+                                letterSpacing: 2.0,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          if (model.rate != 0)
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                          if (model.rate != 0)
+                            Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 25.0,
+                            ),
+                          if (model.rate != 0)
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                          if (model.rate != 0)
+                            Text(
+                              "${model.rate.toString().substring(0, 3)}",
+                              style: TextStyle(
+                                  fontSize: 25.0,
+                                  color: Colors.blueGrey,
+                                  letterSpacing: 2.0,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                        ],
                       ),
                       SizedBox(
                         height: 10,
