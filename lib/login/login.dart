@@ -33,7 +33,7 @@ class loginscreen extends StatelessWidget {
                     child: Column(
                       children: [
                         const Text(
-                          "Tamer",
+                          "Uber4Kids",
                           style: TextStyle(
                             fontSize: 50,
                             fontWeight: FontWeight.w900,

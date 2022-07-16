@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_builder_image_picker/form_builder_image_picker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project/Shared/companents.dart';
+import 'package:project/livelocation.dart';
 import 'package:project/screens/Show.dart';
 import 'package:project/admin/showRoad.dart';
 import 'package:project/admin/yourcustomer.dart';
@@ -22,7 +23,12 @@ class feed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // print("Uid is ${u_model}");
-
+    // if (u_model?.isdriver == true)
+    //   TextButton(
+    //     onPressed: () {
+    //       NavegatorPush(context, livelocation());
+    //     },
+    //     child: Text("data"),),
     return BlocConsumer<homeCubit, HomeStates>(
       builder: (BuildContext context, state) {
         return Padding(
@@ -62,44 +68,22 @@ class feed extends StatelessWidget {
                         NavegatorPush(context, who());
                       },
                       child: ActionContainerLarge(
-                          img: 'as/images/box.png', title: 'Package'),
+                          img: 'as/images/box.png', title: 'Booking'),
                     ),
-                  )
+                  ),
                 ],
               ),
               SizedBox(height: 20),
-              Row(
-                children: const [
-                  Expanded(
-                    child: ActionContainerSmall(
-                      img: 'as/images/car.png',
-                      title: 'Car',
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: ActionContainerSmall(
-                      img: 'as/images/train.png',
-                      title: 'Train',
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: ActionContainerSmall(
-                      img: 'as/images/bus.png',
-                      title: 'Bus',
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: ActionContainerSmall(
-                      img: 'as/images/car.png',
-                      title: 'Transit',
-                    ),
-                  ),
-                ],
+              if (u_model?.isdriver == true)
+              InkWell(
+                onTap: () {
+                  NavegatorPush(context, livelocation());
+                },
+                child: ActionContainerLarge(
+                    img: 'as/images/car.png', title: 'Enable Live Location'),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
+
               InkWell(
                 onTap: () {
                   origin = null;
@@ -143,7 +127,7 @@ class feed extends StatelessWidget {
                       },
                     ),
                   ),
-                )
+                ),
 
               // GridView.count(
               //   shrinkWrap: true,
@@ -189,6 +173,7 @@ class feed extends StatelessWidget {
               //     ),
               //   ],
               // ),
+
             ],
           ),
         );

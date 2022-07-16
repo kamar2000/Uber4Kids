@@ -10,6 +10,7 @@ import 'package:project/cubit/home/homecubit.dart';
 import 'package:project/cubit/home/homestates.dart';
 import 'package:project/home/Home.dart';
 import 'package:project/models/drivermodel.dart';
+import 'package:project/screens/aly.dart';
 import 'package:project/screens/feed.dart';
 import 'package:project/screens/rating.dart';
 
@@ -203,6 +204,15 @@ class profile extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
+                      TextButton(
+                          onPressed: () {
+                            NavegatorPush(
+                                context,
+                                ali(
+                                  model: model,
+                                ));
+                          },
+                          child: Text("data")),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
